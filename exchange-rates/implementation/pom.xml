@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>exchange-project</artifactId>
+        <groupId>com.example.exchange</groupId>
+        <version>1.0.0</version>
+        <relativePath>./../../pom.xml</relativePath>
+    </parent>
+    <name>exchange-rates</name>
+    <artifactId>exchange-rates-implementation</artifactId>
+
+    <properties>
+        <jlupin.skipDeploy>false</jlupin.skipDeploy>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.context.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example.exchange</groupId>
+            <artifactId>exchange-rates-interfaces</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example.exchange</groupId>
+            <artifactId>common-pojo</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!-- JLupin dependencies -->
+        <dependency>
+            <groupId>com.jlupin</groupId>
+            <artifactId>jlupin-client-assembly</artifactId>
+            <version>${server.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.jlupin</groupId>
+                <artifactId>jlupin-next-server-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
